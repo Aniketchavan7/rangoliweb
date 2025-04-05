@@ -1,0 +1,111 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 36 100% 97%;
+    --foreground: 280 60% 34%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 280 60% 34%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 280 60% 34%;
+
+    --primary: 280 60% 34%;
+    --primary-foreground: 36 100% 97%;
+
+    --secondary: 32 100% 50%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 36 30% 90%;
+    --muted-foreground: 280 30% 60%;
+
+    --accent: 36 90% 65%;
+    --accent-foreground: 280 60% 34%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 280 10% 80%;
+    --input: 280 10% 80%;
+    --ring: 32 100% 50%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 280 35% 10%;
+    --foreground: 0 0% 98%;
+
+    --card: 280 35% 15%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 280 35% 15%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 280 60% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 32 90% 60%;
+    --secondary-foreground: 280 35% 10%;
+
+    --muted: 280 35% 20%;
+    --muted-foreground: 280 20% 80%;
+
+    --accent: 32 100% 70%;
+    --accent-foreground: 280 35% 15%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 280 20% 30%;
+    --input: 280 20% 30%;
+    --ring: 32 100% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-rangoli-cream text-rangoli-purple font-poppins;
+  }
+
+  h1, h2, h3 {
+    @apply font-dancing;
+  }
+}
+
+@layer components {
+  .rangoli-shadow {
+    box-shadow: 0px 10px 30px rgba(109, 46, 129, 0.2);
+  }
+
+  .rangoli-gradient {
+    background: linear-gradient(145deg, #6D2E81, #FF8A00);
+  }
+  
+  .rangoli-card {
+    @apply bg-white rounded-xl p-6 rangoli-shadow hover:shadow-lg transition-all duration-300;
+  }
+}
