@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { motion } from "framer-motion";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Image } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 
@@ -335,6 +335,10 @@ const Gallery = () => {
             alt={item.title} 
             className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" 
           />
+          {/* Watermark */}
+          <div className="absolute bottom-2 right-2 text-white text-opacity-70 text-sm font-dancing rotate-[-5deg] drop-shadow-md pointer-events-none">
+            akanksha-creations
+          </div>
           <div className="absolute inset-0 bg-gradient-to-t from-rangoli-purple/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
             <div className="p-4 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
               <h3 className="text-xl font-bold">{item.title}</h3>
@@ -394,15 +398,27 @@ const Gallery = () => {
       </div>
 
       <Dialog open={dialogOpen} onOpenChange={closeImageDialog}>
-        <DialogContent className="max-w-5xl w-[95vw] p-0 overflow-hidden bg-white">
+        <DialogContent className="max-w-5xl w-[95vw] p-0 overflow-hidden bg-black">
           {selectedImage && (
             <div className="flex flex-col w-full">
-              <div className="relative w-full bg-black flex items-center justify-center">
+              <DialogTitle className="sr-only">{selectedImage.title}</DialogTitle>
+              <div className="relative w-full h-[80vh] flex items-center justify-center">
                 <img 
                   src={selectedImage.image} 
                   alt={selectedImage.title}
-                  className="max-w-full max-h-[70vh] object-contain"
+                  className="max-w-full max-h-full object-contain" 
+                  style={{ 
+                    aspectRatio: 'auto', 
+                    maxWidth: '100%', 
+                    maxHeight: '100%',
+                    objectFit: 'contain',
+                    objectPosition: 'center'
+                  }}
                 />
+                {/* Watermark for the enlarged image */}
+                <div className="absolute bottom-4 right-4 text-white text-opacity-80 text-lg font-dancing rotate-[-5deg] drop-shadow-lg pointer-events-none">
+                  akanksha-creations
+                </div>
               </div>
               <div className="p-6 bg-white">
                 <h3 className="text-xl font-bold text-rangoli-purple">{selectedImage.title}</h3>
